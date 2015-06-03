@@ -18,7 +18,7 @@ exports._initScope = function () {
 }
 
 /**
- * Initialize the data. 
+ * Initialize the data.
  */
 
 exports._initData = function () {
@@ -32,7 +32,7 @@ exports._initData = function () {
     while (i--) {
       key = _.camelize(props[i])
       if (!(key in data)) {
-        data[key] = null
+        data[key] = undefined
       }
     }
   }
