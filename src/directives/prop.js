@@ -41,11 +41,6 @@ module.exports = {
         }
       }
     )
-    
-    // set the child initial value first, before setting
-    // up the child watcher to avoid triggering it
-    // immediately.
-    child.$set(childKey, this.parentWatcher.value)
 
     // only setup two-way binding if this is not a one-way
     // binding.
@@ -61,6 +56,11 @@ module.exports = {
         }
       )
     }
+
+    // set the child initial value, maybe triggering the
+    // child watcher immediately.
+    child.$set(childKey, this.parentWatcher.value)
+
   },
 
   unbind: function () {
